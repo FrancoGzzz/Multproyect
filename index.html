@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TuCasa.click | CRM</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark">T</div>
+        <div><strong>tucasa<span>.click</span></strong><small>CRM INMOBILIARIO</small></div>
+      </div>
+      <div class="workspace-label">ESPACIO DE TRABAJO</div>
+      <nav class="nav">
+        <button class="nav-item active" data-view="dashboard"><span>▦</span> Panel general</button>
+        <button class="nav-item" data-view="leads"><span>◎</span> Leads <b class="nav-count" id="navLeadCount">6</b></button>
+        <button class="nav-item" data-view="opportunities"><span>◇</span> Oportunidades</button>
+        <button class="nav-item" data-view="activities"><span>◷</span> Actividades</button>
+        <button class="nav-item" data-view="advisors"><span>♙</span> Asesores</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card"><div class="help-icon">✦</div><strong>Centro de ayuda</strong><p>Organizá tus consultas y no pierdas ninguna oportunidad.</p></div>
+        <div class="profile">
+          <div class="avatar avatar-purple">FG</div>
+          <div class="profile-copy"><strong>Equipo CRM</strong><small>Administrador</small></div>
+          <span class="dots">•••</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Abrir menú">☰</button>
+        <div class="breadcrumbs">CRM <span>/</span> <strong id="breadcrumbTitle">Panel general</strong></div>
+        <div class="top-actions">
+          <div class="status-pill"><i></i> Sistema de demostración</div>
+          <button class="icon-btn" title="Notificaciones" aria-label="Notificaciones">♧<em></em></button>
+          <div class="avatar avatar-green">FG</div>
+        </div>
+      </header>
+
+      <section class="page-content">
+        <div class="welcome-row">
+          <div><div class="eyebrow" id="todayLabel">TU ESPACIO DE TRABAJO</div><h1 id="pageTitle">Buenos días, equipo <span>👋</span></h1><p id="pageSubtitle">Este es el resumen de lo que está pasando con tus clientes hoy.</p></div>
+          <button class="primary-btn" id="newLeadBtn"><span>＋</span> Nuevo lead</button>
+        </div>
+
+        <div id="dashboardView">
+          <div class="stats-grid">
+            <article class="stat-card"><div class="stat-top"><span>Leads activos</span><span class="stat-icon blue">◎</span></div><div class="stat-value" id="statLeads">128</div><div class="stat-foot"><span class="trend">↗ 12%</span> vs. mes anterior</div></article>
+            <article class="stat-card"><div class="stat-top"><span>Oportunidades abiertas</span><span class="stat-icon violet">◇</span></div><div class="stat-value">34</div><div class="stat-foot"><span class="trend">↗ 8%</span> vs. mes anterior</div></article>
+            <article class="stat-card"><div class="stat-top"><span>Visitas programadas</span><span class="stat-icon orange">⌖</span></div><div class="stat-value">12</div><div class="stat-foot"><span class="neutral-trend">Para esta semana</span></div></article>
+            <article class="stat-card"><div class="stat-top"><span>Conversión estimada</span><span class="stat-icon green">↗</span></div><div class="stat-value">18,6<span class="percent">%</span></div><div class="stat-foot"><span class="trend">↗ 2,4%</span> vs. mes anterior</div></article>
+          </div>
+
+          <div class="content-grid">
+            <section class="panel leads-panel">
+              <div class="panel-heading"><div><h2>Leads recientes</h2><p>Últimos contactos que necesitan seguimiento.</p></div><button class="text-btn" data-goto="leads">Ver todos <span>→</span></button></div>
+              <div class="table-tools"><label class="search-box"><span>⌕</span><input id="dashboardSearch" placeholder="Buscar lead..." aria-label="Buscar lead"></label><select id="dashboardStatus" aria-label="Filtrar por estado"><option value="all">Todos los estados</option><option>Nuevo</option><option>En seguimiento</option><option>Calificado</option></select></div>
+              <div class="table-wrap"><table><thead><tr><th>CONTACTO</th><th>INTERÉS</th><th>ESTADO</th><th>ASESOR</th></tr></thead><tbody id="dashboardLeadRows"></tbody></table></div>
+              <div class="table-footer"><span id="dashboardCount">Mostrando leads recientes</span><button class="text-btn" data-goto="leads">Ir a leads →</button></div>
+            </section>
+            <section class="panel activity-panel">
+              <div class="panel-heading"><div><h2>Próximas actividades</h2><p>Tu agenda de seguimiento.</p></div><span class="calendar-icon">▦</span></div>
+              <div class="activity-list" id="activityList"></div>
+              <button class="outline-btn full-btn" data-goto="activities">Ver agenda completa</button>
+            </section>
+          </div>
+          <div class="bottom-grid">
+            <section class="panel funnel-panel"><div class="panel-heading"><div><h2>Embudo comercial</h2><p>Distribución ilustrativa de leads por etapa.</p></div><span class="muted-label">Este mes</span></div>
+              <div class="funnel-row"><div class="funnel-label"><span><i class="dot dot-blue"></i> Nuevos</span><strong>48</strong></div><div class="progress"><span style="width:88%"></span></div></div>
+              <div class="funnel-row"><div class="funnel-label"><span><i class="dot dot-violet"></i> En seguimiento</span><strong>31</strong></div><div class="progress purple"><span style="width:64%"></span></div></div>
+              <div class="funnel-row"><div class="funnel-label"><span><i class="dot dot-orange"></i> Visita / propuesta</span><strong>18</strong></div><div class="progress orange"><span style="width:40%"></span></div></div>
+              <div class="funnel-row"><div class="funnel-label"><span><i class="dot dot-green"></i> Cerrados</span><strong>9</strong></div><div class="progress green"><span style="width:22%"></span></div></div>
+            </section>
+            <section class="panel integration-panel"><div class="integration-head"><div class="integration-symbol">↔</div><div><h2>Integración de leads</h2><p>Conexión prevista con el módulo de publicaciones.</p></div></div>
+              <div class="integration-flow"><span>Formulario web</span><b>→</b><span>Lead recibido</span><b>→</b><span>CRM</span></div>
+              <div class="integration-note"><span class="pulse"></span> <span>Propuesta de integración: <strong>LEAD_RECIBIDO → LEAD</strong></span></div>
+              <p class="small-note">La conexión automática con Gaia queda pendiente de acordar e implementar con la API o el esquema compartido.</p>
+            </section>
+          </div>
+        </div>
+
+        <section id="leadsView" class="panel hidden">
+          <div class="panel-heading"><div><h2>Gestión de leads</h2><p>Consultas recibidas y seguimiento comercial.</p></div><button class="primary-btn" id="newLeadBtn2">＋ Nuevo lead</button></div>
+          <div class="table-tools"><label class="search-box"><span>⌕</span><input id="leadSearch" placeholder="Buscar por nombre, email o interés..." aria-label="Buscar leads"></label><select id="leadStatusFilter"><option value="all">Todos los estados</option><option>Nuevo</option><option>En seguimiento</option><option>Calificado</option><option>Cerrado</option></select></div>
+          <div class="table-wrap"><table class="full-table"><thead><tr><th>CONTACTO</th><th>INTERÉS</th><th>ORIGEN</th><th>ASESOR</th><th>ESTADO</th><th>ACCIÓN</th></tr></thead><tbody id="allLeadRows"></tbody></table></div>
+          <p class="small-note">Datos ficticios para demostración; todavía no se guardan en SQL.</p>
+        </section>
+
+        <section id="opportunitiesView" class="panel hidden"><div class="panel-heading"><div><h2>Oportunidades</h2><p>Posibles operaciones comerciales vinculadas a propiedades.</p></div><span class="demo-tag">Vista preliminar</span></div><div class="opportunity-grid"><div class="op-card"><span class="status status-blue">Calificación</span><h3>Departamento en Asunción</h3><p>Lead: Camila Benítez</p><strong>Gs. 480.000.000</strong></div><div class="op-card"><span class="status status-violet">Visita programada</span><h3>Casa en Luque</h3><p>Lead: Diego Acosta</p><strong>Gs. 620.000.000</strong></div><div class="op-card"><span class="status status-green">Propuesta</span><h3>Terreno en San Lorenzo</h3><p>Lead: Lucía Vera</p><strong>Gs. 310.000.000</strong></div></div><p class="small-note">Montos y operaciones ilustrativos. La estructura definitiva depende de la unificación del modelo ER.</p></section>
+
+        <section id="activitiesView" class="panel hidden"><div class="panel-heading"><div><h2>Actividades</h2><p>Llamadas, visitas y tareas de seguimiento.</p></div><span class="demo-tag">Agenda de ejemplo</span></div><div id="allActivities" class="all-activities"></div></section>
+
+        <section id="advisorsView" class="panel hidden"><div class="panel-heading"><div><h2>Asesores</h2><p>Equipo interno y colaboradores externos.</p></div><span class="demo-tag">Vista preliminar</span></div><div class="advisor-grid"><div class="advisor-card"><div class="avatar avatar-blue">MR</div><div><strong>María Rojas</strong><p>Asesora interna</p><span class="advisor-meta">8 leads asignados</span></div><span class="online-dot"></span></div><div class="advisor-card"><div class="avatar avatar-orange">JP</div><div><strong>Juan Pérez</strong><p>Asesor externo</p><span class="advisor-meta">5 leads asignados</span></div><span class="online-dot"></span></div><div class="advisor-card"><div class="avatar avatar-purple">LS</div><div><strong>Lucía Sánchez</strong><p>Asesora interna</p><span class="advisor-meta">11 leads asignados</span></div><span class="online-dot"></span></div></div><p class="small-note">Los perfiles mostrados son ficticios y no están conectados a una tabla de empleados o proveedores.</p></section>
+      </section>
+      <footer class="footer"><span>TuCasa.click CRM · Prototipo académico</span><span>Versión de avance 0.1 · Datos de demostración</span></footer>
+    </main>
+  </div>
+
+  <div class="modal-backdrop hidden" id="leadModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <form class="modal" id="leadForm">
+      <div class="modal-head"><div><span class="eyebrow">CRM · CONTACTOS</span><h2 id="modalTitle">Registrar nuevo lead</h2><p>Completá los datos básicos del interesado.</p></div><button type="button" class="close-btn" id="closeModal" aria-label="Cerrar">×</button></div>
+      <div class="form-grid">
+        <label>Nombre completo *<input name="name" required placeholder="Ej. Andrea Gómez"></label>
+        <label>Teléfono<input name="phone" placeholder="Ej. 0981 000 000"></label>
+        <label>Email<input name="email" type="email" placeholder="nombre@correo.com"></label>
+        <label>Propiedad de interés *<input name="interest" required placeholder="Ej. Departamento en Asunción"></label>
+        <label>Origen<select name="source"><option>tucasa.click</option><option>WhatsApp</option><option>Referido</option><option>Otro</option></select></label>
+        <label>Estado<select name="status"><option>Nuevo</option><option>En seguimiento</option><option>Calificado</option></select></label>
+        <label class="span-two">Mensaje<textarea name="message" rows="3" placeholder="¿Qué necesita el interesado?"></textarea></label>
+      </div>
+      <div class="modal-foot"><span class="small-note">* Campos obligatorios</span><div><button type="button" class="outline-btn" id="cancelModal">Cancelar</button> <button type="submit" class="primary-btn">Guardar lead</button></div></div>
+    </form>
+  </div>
+  <div class="toast hidden" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
